@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+        h1 {
+            text-align: center;
+        }
+        .cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+            grid-auto-rows: 200px;
+            grid-gap: 20px;
+        }
+        .card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f8f8f8;
+            padding: 10px;
+            border: 1px solid #cccccc;
+            color: #0268b4;
+            font-weight: bold;
+            font-size: large;
+        }
+    </style>
+    <title>Cards</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4">Cards</h1>
+        <div class="cards" data-outlet>
+            <span class="card">1</span>
+            <span class="card">2</span>
+            <span class="card">3</span>
+            <span class="card">4</span>
+            <span class="card">5</span>
+            <span class="card">6</span>
+            <span class="card">7</span>
+            <span class="card">8</span>
+        </div>
+        <div class="my-4">
+            <form id="form">
+                <div class="form-group">
+                    <label>Number of Cards</label>
+                    <input type="number" name="number" class="form-control"  required />
+                </div>
+                <button type="submit" data-action="load" class="btn btn-primary">Load</button>
+                <button type="submit" data-action="cut" class="btn btn-primary">Cut</button>
+            </form>
+        </div>
+    </div>
+    <script id="card" type="text/html">
+        <span class="card">{{number}}</span>
+    </script>
+    <script>
+        document.querySelector('form').addEventListener('submit', e => {
+            e.preventDefault();
+            const number = document.querySelector('input[name="number"]').value;
+            const action = document.activeElement.dataset.action ?? 'load';
+            const template = document.querySelector('#card').innerHTML.trim();
+
+            console.log('number', number);
+            console.log('action', action);
+            console.log('template', template);
+
+            /*
+            TODO: Use `fetch` or `XMLHttpRequest` to fetch a list of cards from these endpoints:
+            /load
+            /cut
+
+            For example, if action is `cut` and number is `16`, then the request URL shall be:
+            /cut?number=16
+
+            Populate [data-outlet] with the newly fetched list of cards.
+
+            Hints:
+            - Use template to generate HTML like this:
+            template.replace('{{number}}', 5)
+            - Use innerHTML to inject HTML like this:
+            document.querySelector('[data-outlet]').innerHTML = '<h1>Hello!!!</h1>'
+            */
+
+        })
+    </script>
+</body>
+</html>
