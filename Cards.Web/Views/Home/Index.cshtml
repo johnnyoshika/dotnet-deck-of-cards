@@ -97,6 +97,13 @@
 
             */
 
+            fetch(`/${action}?number=${number}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.querySelector('[data-outlet]').innerHTML =
+                        data.map(card => template.replace('{{number}}', card.number)).join('');
+                });
+
         })
     </script>
 </body>
