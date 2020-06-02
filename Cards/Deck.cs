@@ -9,13 +9,19 @@ namespace Cards
     {
         public Deck(int count)
         {
-            Cards = new List<Card>();
+            Cards = Enumerable
+                .Range(1, count)
+                .Select(i => new Card(i))
+                .ToList();
         }
 
         public List<Card> Cards { get; private set; }
 
-        public void Cut() {}
+        public void Cut() =>
+            Cards = Cards.Skip(Midpoint)
+                .Concat(Cards.Take(Midpoint))
+                .ToList();
 
-        internal int Midpoint => 0;
+        internal int Midpoint => (int)Math.Ceiling((decimal)Cards.Count() / 2);
     }
 }
