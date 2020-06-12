@@ -51,6 +51,15 @@
                 <button type="submit" data-action="cut" class="btn btn-primary">Cut</button>
             </form>
         </div>
+        <div class="my-4">
+            <h3>Instructions:</h3>
+            <p>Load cards from the following API endpoints and update the list of cards with their responses.</p>
+            <h4>API Endpoints:</h4>
+            <ul>
+                <li><a href="/load?number=16">/load?number=16</a></li>
+                <li><a href="/cut?number=16">/cut?number=16</a></li>
+            </ul>
+        </div>
     </div>
     <script id="card" type="text/html">
         <span class="card">{{number}}</span>
