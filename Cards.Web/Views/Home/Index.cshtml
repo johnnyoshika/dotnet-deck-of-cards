@@ -76,20 +76,25 @@
             console.log('template', template);
 
             /*
-            TODO: Use `fetch` or `XMLHttpRequest` to fetch a list of cards from these endpoints:
-            /load
-            /cut
+            
+            1) Use `fetch` or `XMLHttpRequest` to fetch a list of cards from the endpoints.
+
+            API endpoint format is:
+            /{action}?number={number}
 
             For example, if action is `cut` and number is `16`, then the request URL shall be:
             /cut?number=16
 
-            Populate [data-outlet] with the newly fetched list of cards.
+            2) Populate [data-outlet] with the newly fetched list of cards.
 
             Hints:
+
             - Use template to generate HTML like this:
             template.replace('{{number}}', 5)
+
             - Use innerHTML to inject HTML like this:
             document.querySelector('[data-outlet]').innerHTML = '<h1>Hello!!!</h1>'
+
             */
 
         })
